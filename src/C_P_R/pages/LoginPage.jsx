@@ -8,7 +8,8 @@ import Swal from "sweetalert2";
 export default function LoginPage() {
     const { register, handleSubmit, formState: { errors } } = useForm();
 
-    const { logIn, createUserWithGoogle, createUserWithGithub } = useContext(AuthContext);
+    const { logIn, createUserWithGoogle, createUserWithGithub, user } = useContext(AuthContext);
+    console.log(errors.email, errors.password);
 
     const handleLogin = (data) => {
         console.log(data);
@@ -54,7 +55,15 @@ export default function LoginPage() {
             })
     }
     const handleGoogleLogin = () => {
-        createUserWithGoogle().then((result) => {
+        if (user) {
+            Swal.fire({
+                icon: "error",
+                title: "You already login",
+                showConfirmButton: false,
+            })
+            return;
+        }
+        return createUserWithGoogle().then((result) => {
             if (result.user.uid) {
                 Swal.fire({
                     title: "Login successful",
@@ -70,9 +79,17 @@ export default function LoginPage() {
         })
     }
     const handleGithubLogin = () => {
-        createUserWithGithub().then((result) => {
+        if (user) {
+            Swal.fire({
+                icon: "error",
+                title: "You already login",
+                showConfirmButton: false
+            })
+            return;
+        }
+        return createUserWithGithub().then((result) => {
             if (result.user.uid) {
-                Swal.fire({
+                return Swal.fire({
                     title: "Login successful",
                     icon: "success",
                     timer: 3000
@@ -122,11 +139,11 @@ export default function LoginPage() {
                     <div className="grid flex-grow card bg-base-200 rounded-box place-items-center p-4 gap-2">
                         <div>
 
-                            <button className="btn uppercase" onClick={handleGoogleLogin}><FcGoogle></FcGoogle> Sign in with google</button>
+                            <button className="btn uppercase" type="button" onClick={handleGoogleLogin}><FcGoogle></FcGoogle> Sign in with google</button>
                         </div>
                         <div>
 
-                            <button className="btn uppercase" onClick={handleGithubLogin}><FaGithub></FaGithub> Sign in with google</button>
+                            <button className="btn uppercase" type="button" onClick={handleGithubLogin}><FaGithub></FaGithub> Sign in with google</button>
                         </div>
                     </div>
                 </div>
