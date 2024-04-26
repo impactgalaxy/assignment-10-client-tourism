@@ -4,9 +4,9 @@ import { AuthContext } from "../provider/AuthProvider";
 import defaultUser from "/user.png";
 import { Tooltip } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css'
+import Swal from "sweetalert2";
 export default function Navbar() {
-    const { user } = useContext(AuthContext);
-    console.log(user?.photoURL);
+    const { user, logOut } = useContext(AuthContext);
     const navLinks = (
         <>
             <li><NavLink to="/" className={`${(isActive) => isActive ? "text-green-700 border-b" : ""}`}>Home</NavLink></li>
@@ -16,6 +16,24 @@ export default function Navbar() {
 
         </>
     )
+    const handleLogout = () => {
+        logOut()
+            .then(() => {
+                Swal.fire({
+                    title: "Logout successful",
+                    icon: "success",
+                    timer: 3000,
+                    position: "center",
+                }).catch(() => {
+                    Swal.fire({
+                        icon: "error",
+                        timer: 3000,
+                        title: "Failed to logout",
+                    })
+                })
+            })
+
+    }
     return (
         <div className="navbar bg-base-100">
             <div className="navbar-start">
@@ -52,12 +70,12 @@ export default function Navbar() {
 
                 {
                     user ?
-                        <button className="btn">Logout</button> :
+                        <button className="btn" onClick={handleLogout}>Logout</button> :
                         (
-                            <>
+                            <div className="flex gap-2 items-center">
                                 <Link to="/login" className="btn">Login</Link>
                                 <Link to="/register" className="btn">Register</Link>
-                            </>
+                            </div>
 
                         )
                 }
