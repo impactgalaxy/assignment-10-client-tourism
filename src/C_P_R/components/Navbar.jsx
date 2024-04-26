@@ -1,12 +1,19 @@
+import { useContext } from "react"
 import { Link, NavLink } from "react-router-dom"
-
+import { AuthContext } from "../provider/AuthProvider";
+import defaultUser from "/user.png";
+import { Tooltip } from 'react-tooltip';
+import 'react-tooltip/dist/react-tooltip.css'
 export default function Navbar() {
+    const { user } = useContext(AuthContext);
+    console.log(user?.photoURL);
     const navLinks = (
         <>
             <li><NavLink to="/" className={`${(isActive) => isActive ? "text-green-700 border-b" : ""}`}>Home</NavLink></li>
             <li><NavLink to="/all-tourists-spot" className={`${(isActive) => isActive ? "text-green-700 border-b" : ""}`}>All Tourists Spot</NavLink></li>
             <li><NavLink to="/add-tourists-spot" className={`${(isActive) => isActive ? "text-green-700 border-b" : ""}`}>Add Tourists Spot</NavLink></li>
             <li><NavLink to="/my-list" className={`${(isActive) => isActive ? "text-green-700 border-b" : ""}`}>My List</NavLink></li>
+
         </>
     )
     return (
@@ -28,7 +35,32 @@ export default function Navbar() {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link to="/login" className="btn">Login</Link>
+                {
+                    user && <div tabIndex={0} role="button"
+                        data-tooltip-id="my-tooltip"
+                        data-tooltip-content={`${user?.displayName}`}
+                        data-tooltip-place="top"
+                        className="btn btn-ghost btn-circle avatar"
+                    >
+                        <div className="w-10 rounded-full">
+                            <Tooltip id="my-tooltip"></Tooltip>
+                            <img src={`${user?.photoURL !== null ? user?.photoURL : defaultUser}`} />
+
+                        </div>
+                    </div>
+                }
+
+                {
+                    user ?
+                        <button className="btn">Logout</button> :
+                        (
+                            <>
+                                <Link to="/login" className="btn">Login</Link>
+                                <Link to="/register" className="btn">Register</Link>
+                            </>
+
+                        )
+                }
             </div>
         </div>
     )

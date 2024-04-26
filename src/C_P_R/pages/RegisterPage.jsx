@@ -1,11 +1,61 @@
+import { useContext } from "react";
 import { useForm } from "react-hook-form"
 import { Link } from "react-router-dom";
+import { AuthContext } from "../provider/AuthProvider";
+import Swal from "sweetalert2";
 
 export default function RegisterPage() {
     const { register, handleSubmit, formState: { errors } } = useForm();
 
+    const { registerUser } = useContext(AuthContext);
+
     const handleRegister = (data) => {
         console.log(data);
+        const { email, password } = data;
+        registerUser(email, password)
+            .then(result => {
+                if (result.user.uid) {
+                    Swal.fire({
+                        title: "Registered Successful",
+                        titleText: "You have successfully register your account",
+                        icon: "success",
+                        timer: 3000,
+                    })
+                }
+            }).catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                let errorText = "";
+                switch (errorCode) {
+                    case 'auth/invalid-email':
+                        errorText = "Invalid email format.";
+                        break;
+                    case 'auth/weak-password':
+                        errorText = "The password is too weak.";
+                        break;
+                    case 'auth/email-already-in-use':
+                        errorText = "The email address is already in use try another account.";
+                        break;
+                    case 'auth/network-request-failed':
+                        errorText = "A network error occurred. Please check your internet connection.";
+                        break;
+                    case 'auth/operation-not-allowed':
+                        errorText = "The operation is not allowed.";
+                        break;
+                    default:
+                        errorText = "An unknown error occurred:", errorMessage;
+                        break;
+                }
+                Swal.fire({
+                    // title: "Failed",
+                    title: `${errorText}`,
+                    icon: "error",
+                    showConfirmButton: true,
+
+                })
+            })
+
+
     }
     return (
         <div>
