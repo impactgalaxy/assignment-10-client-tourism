@@ -116,7 +116,7 @@ export default function AddTouristsSpot() {
                             <div className="label">
                                 <span className="label-text">Enter total visitor per year</span>
                             </div>
-                            <input type="text" {...register("visitorPerYear", { required: true })} placeholder="text " className="input input-bordered w-full" />
+                            <input type="text" {...register("visitorPerYear", { required: true })} placeholder="Visitor per year like 10000000 " className="input input-bordered w-full" />
                             {errors.visitorPerYear && <span className="label-text-alt text-red-600 py-1">You should provide visitor per year</span>}
 
                         </label>

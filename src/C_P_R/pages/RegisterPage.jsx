@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form"
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import Swal from "sweetalert2";
 
@@ -15,6 +15,7 @@ export default function RegisterPage() {
         registerUser(email, password)
             .then(result => {
                 if (result.user.uid) {
+                    <Navigate to="/"></Navigate>
                     Swal.fire({
                         title: "Registered Successful",
                         titleText: "You have successfully register your account",
@@ -22,6 +23,8 @@ export default function RegisterPage() {
                         timer: 3000,
                     })
                 }
+
+
             }).catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
@@ -51,11 +54,8 @@ export default function RegisterPage() {
                     title: `${errorText}`,
                     icon: "error",
                     showConfirmButton: true,
-
                 })
             })
-
-
     }
     return (
         <div>
