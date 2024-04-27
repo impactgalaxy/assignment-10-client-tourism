@@ -5,6 +5,8 @@ import defaultUser from "/user.png";
 import { Tooltip } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css'
 import Swal from "sweetalert2";
+
+
 export default function Navbar() {
     const { user, logOut } = useContext(AuthContext);
     const [theme, setTheme] = useState(false);
@@ -67,7 +69,7 @@ export default function Navbar() {
                         {navLinks}
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl">Southern Tour</a>
+                <a className="btn btn-ghost md:text-xl">Southern Tour</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -75,7 +77,11 @@ export default function Navbar() {
                 </ul>
             </div>
             <div className="navbar-end">
-                <label className="swap swap-rotate">
+                <label className="swap swap-rotate"
+                    data-tooltip-id="theme"
+                    data-tooltip-content="Theme"
+                    data-tooltip-place="bottom">
+                    <Tooltip id="theme"></Tooltip>
                     {/* this hidden checkbox controls the state */}
                     <input type="checkbox" checked={theme} className="theme-controller" onChange={handleTheme} />
                     {/* sun icon */}
@@ -86,7 +92,7 @@ export default function Navbar() {
                 {
                     user && <div tabIndex={0} role="button"
                         data-tooltip-id="my-tooltip"
-                        data-tooltip-content={`${user?.displayName}`}
+                        data-tooltip-content={`${user?.displayName === null ? "No name" : user?.displayName}`}
                         data-tooltip-place="top"
                         className="btn btn-ghost btn-circle avatar"
                     >
@@ -100,11 +106,11 @@ export default function Navbar() {
 
                 {
                     user ?
-                        <button className="btn" onClick={handleLogout}>Logout</button> :
+                        <button className="btn text-sm md:text-lg" onClick={handleLogout}>Logout</button> :
                         (
                             <div className="flex gap-2 items-center">
-                                <Link to="/login" className="btn">Login</Link>
-                                <Link to="/register" className="btn">Register</Link>
+                                <Link to="/login" className="btn sm:text-sm">Login</Link>
+                                <Link to="/register" className="btn hidden md:flex">Register</Link>
                             </div>
 
                         )
