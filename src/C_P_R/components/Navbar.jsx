@@ -9,10 +9,10 @@ export default function Navbar() {
     const { user, logOut } = useContext(AuthContext);
     const navLinks = (
         <>
-            <li><NavLink to="/" className={`${(isActive) => isActive ? "text-green-700 border-b" : ""}`}>Home</NavLink></li>
-            <li><NavLink to="/all-tourists-spot" className={`${(isActive) => isActive ? "text-green-700 border-b" : ""}`}>All Tourists Spot</NavLink></li>
-            <li><NavLink to="/add-tourists-spot" className={`${(isActive) => isActive ? "text-green-700 border-b" : ""}`}>Add Tourists Spot</NavLink></li>
-            <li><NavLink to="/my-list" className={`${(isActive) => isActive ? "text-green-700 border-b" : ""}`}>My List</NavLink></li>
+            <li><NavLink to="/" className={`${({ isActive }) => isActive ? "text-green-700 border-b" : ""}`}>Home</NavLink></li>
+            <li><NavLink to="/all-tourists-spot" className={`${({ isActive }) => isActive ? "text-green-700 border-b" : ""}`}>All Tourists Spot</NavLink></li>
+            <li><NavLink to="/add-tourists-spot" className={`${({ isActive }) => console.log(isActive) ? "text-green-700 border-b" : ""}`}>Add Tourists Spot</NavLink></li>
+            <li><NavLink to="/my-list" className={`${({ isActive }) => isActive ? "text-green-700 border-b" : ""}`}>My List</NavLink></li>
 
         </>
     )

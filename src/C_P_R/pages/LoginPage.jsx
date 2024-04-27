@@ -1,21 +1,29 @@
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import Swal from "sweetalert2";
 export default function LoginPage() {
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const navigation = useNavigate();
+    const location = useLocation();
 
     const { logIn, createUserWithGoogle, createUserWithGithub, user } = useContext(AuthContext);
-    console.log(errors.email, errors.password);
+    console.log(location);
 
     const handleLogin = (data) => {
         console.log(data);
         const { email, password } = data;
         logIn(email, password)
             .then((result) => {
+                if (location.state === null) {
+                    navigation("/");
+                }
+                else {
+                    navigation(location.state);
+                }
                 if (result.user.uid) {
                     Swal.fire({
                         title: "Login successful",
@@ -25,33 +33,51 @@ export default function LoginPage() {
                 }
             }).catch((error) => {
                 const errorCode = error.code;
-                const errorMessage = error.message;
-                let errorText = "";
+                console.log(error, errorCode);
                 switch (errorCode) {
                     case 'auth/invalid-email':
-                        errorText = "Invalid email format.";
+                        Swal.fire({
+                            title: "Invalid email format.",
+                            icon: "error",
+                        })
+                        break;
+                    case 'auth/invalid-credential':
+                        Swal.fire({
+                            icon: "error",
+                            title: "User not found",
+                        })
                         break;
                     case 'auth/wrong-password':
-                        errorText = "Incorrect password.";
+                        Swal.fire({
+                            title: "Incorrect password.",
+                            icon: "error",
+                        })
                         break;
                     case 'auth/user-not-found':
-                        errorText = "No user found with the provided email.";
+                        Swal.fire({
+                            title: "No user found with the provided email.",
+                            icon: "error",
+                        })
                         break;
                     case 'auth/network-request-failed':
-                        errorText = "A network error occurred. Please check your internet connection.";
+                        Swal.fire({
+                            title: "A network error occurred. Please check your internet connection.",
+                            icon: "error",
+                        })
                         break;
                     case 'auth/operation-not-allowed':
-                        errorText = "The operation is not allowed.";
+                        Swal.fire({
+                            title: "The operation is not allowed.",
+                            icon: "error",
+                        })
                         break;
                     default:
-                        errorText = "An unknown error occurred:", errorMessage;
-                        break;
+                        Swal.fire({
+                            title: "An unknown error occurred:",
+                            icon: "error",
+                        })
                 }
-                Swal.fire({
-                    icon: "error",
-                    showConfirmButton: true,
-                    title: `${errorText}`
-                })
+
             })
     }
     const handleGoogleLogin = () => {
@@ -64,12 +90,19 @@ export default function LoginPage() {
             return;
         }
         return createUserWithGoogle().then((result) => {
+            if (location.state === null) {
+                navigation("/");
+            }
+            else {
+                navigation(location.state);
+            }
             if (result.user.uid) {
                 Swal.fire({
                     title: "Login successful",
                     icon: "success",
                     timer: 3000
                 })
+
             }
         }).catch((error) => {
             Swal.fire({
@@ -88,6 +121,12 @@ export default function LoginPage() {
             return;
         }
         return createUserWithGithub().then((result) => {
+            if (location.state === null) {
+                navigation("/");
+            }
+            else {
+                navigation(location.state);
+            }
             if (result.user.uid) {
                 return Swal.fire({
                     title: "Login successful",
