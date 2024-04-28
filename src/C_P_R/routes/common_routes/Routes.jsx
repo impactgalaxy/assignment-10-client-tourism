@@ -44,15 +44,16 @@ export const router = createBrowserRouter([
                 element: <PrivateRoute><MyList></MyList></PrivateRoute>,
                 loader: () => fetch("http://localhost:5000/touristSpots")
             },
+
+            {
+                path: "/tourist_spot_details/:id",
+                element: <PrivateRoute><TouristSpot_Details></TouristSpot_Details></PrivateRoute>,
+            },
             {
                 path: "/view_all_spots/:country",
                 element: <ViewAllSpots></ViewAllSpots>,
                 loader: ({ params }) => fetch(`http://localhost:5000/touristSpots/${params.country}`)
             },
-            {
-                path: "/tourist_spot_details/:id",
-                element: <TouristSpot_Details></TouristSpot_Details>
-            }
         ]
     }
 ])    
