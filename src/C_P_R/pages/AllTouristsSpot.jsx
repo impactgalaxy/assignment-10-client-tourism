@@ -3,11 +3,53 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import { Autoplay, Pagination } from 'swiper/modules';
 import 'swiper/css/pagination';
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import Swal from "sweetalert2";
+
 
 export default function AllTouristsSpot() {
     const loadedSpot = useLoaderData();
     const [loaderData, setLoadedSpot] = useState(loadedSpot);
+    const copyOfLoaderData = [...loadedSpot];
+    console.log(copyOfLoaderData);
+    const handleFilter = (e) => {
+        const value = e.target.value;
+        if (value === "higher") {
+            const filter = copyOfLoaderData.sort((a, b) => {
+                const regEx = /[0-9]/g;
+                const first = a.cost.match(regEx).join("");
+                const second = b.cost.match(regEx).join("");
+                return parseInt(first) - parseInt(second)
+            });
+            setLoadedSpot(filter);
+            Swal.fire(({
+                icon: "success",
+                title: "Success",
+                timer: 2000,
+                showConfirmButton: false,
+                text: "Sorted successfully by lower cost"
+            }))
+        } else if (value === "lower") {
+            const filter = copyOfLoaderData.sort((a, b) => {
+                const regEx = /[0-9]/g;
+                const first = a.cost.match(regEx).join("");
+                const second = b.cost.match(regEx).join("");
+                return parseInt(second) - parseInt(first)
+            });
+            setLoadedSpot(filter);
+            Swal.fire(({
+                icon: "success",
+                title: "Success",
+                timer: 2000,
+                showConfirmButton: false,
+                text: "Sorted successfully by higher cost"
+            }))
+        } else {
+            setLoadedSpot(copyOfLoaderData);
+        }
+
+    }
+
 
 
     return (
@@ -35,12 +77,13 @@ export default function AllTouristsSpot() {
                 </Swiper>
             </div>
             <div>
-                <div className="py-5 flex items-center justify-center">
-                    <select className="dropdown" >
+                <div className="py-5 flex items-center justify-center gap-10">
+                    <select className="dropdown btn" onChange={handleFilter}>
                         <option>Filter by</option>
-                        <option value="higher">Higher </option>
-                        <option value="lower">Lower </option>
+                        <option value="higher">Lower to Higher</option>
+                        <option value="lower">Higher to lower</option>
                     </select>
+                    <Link to="/add-tourists-spot" className="btn border-t-red-200">Add Tourist Spots</Link>
                 </div>
                 <div className="flex gap-4 flex-wrap items-center justify-center lg:my-10">
 
