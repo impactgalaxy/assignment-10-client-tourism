@@ -27,12 +27,12 @@ export default function Navbar() {
                     icon: "success",
                     timer: 3000,
                     position: "center",
-                }).catch(() => {
-                    Swal.fire({
-                        icon: "error",
-                        timer: 3000,
-                        title: "Failed to logout",
-                    })
+                })
+            }).catch(() => {
+                Swal.fire({
+                    icon: "error",
+                    timer: 3000,
+                    title: "Failed to logout",
                 })
             })
 
