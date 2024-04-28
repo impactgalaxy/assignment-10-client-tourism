@@ -36,121 +36,128 @@ export default function Banner() {
                 </h1>
             </div>
             <div className='p-4 grid grid-cols-1 md:grid-cols-2 gap-3'>
-                <Swiper
-                    slidesPerView={1}
-                    autoplay={true}
-                    spaceBetween={0}
-                    loop={true}
+                <div>
+                    <Swiper
+                        slidesPerView={1}
+                        autoplay={true}
+                        spaceBetween={0}
+                        loop={true}
 
-                    modules={[Autoplay]}
-                    className="mySwiper"
-                >
-                    <SwiperSlide>
-                        <img src="https://i.ibb.co/myMdbSb/giuseppe-mondi-xy-E1p1r-G04-U-unsplash.jpg" alt="" />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img src="https://i.ibb.co/5YV0ZrG/raimond-klavins-KKm1ua7-MSf0-unsplash.jpg" alt="" />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img src="https://i.ibb.co/FmLx018/meera-pankhania-7c-ENZhgyf7c-unsplash.jpg" alt="" />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img src="https://i.ibb.co/vJC2P1L/azin-javadzadeh-WMpy-RPa-S7-DQ-unsplash.jpg" alt="" />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img src="https://i.ibb.co/gmsjKh3/kaushal-subedi-z-RWq-7-SWVSU-unsplash.jpg" alt="" />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img src="https://i.ibb.co/5FbLBx6/tobse-fritz-BLTc-Ki-KXbz-U-unsplash.jpg" alt="" />
-                    </SwiperSlide>
+                        modules={[Autoplay]}
+                        className="mySwiper"
+                    >
+                        <SwiperSlide>
+                            <img src="https://i.ibb.co/myMdbSb/giuseppe-mondi-xy-E1p1r-G04-U-unsplash.jpg" alt="" />
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <img src="https://i.ibb.co/5YV0ZrG/raimond-klavins-KKm1ua7-MSf0-unsplash.jpg" alt="" />
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <img src="https://i.ibb.co/FmLx018/meera-pankhania-7c-ENZhgyf7c-unsplash.jpg" alt="" />
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <img src="https://i.ibb.co/vJC2P1L/azin-javadzadeh-WMpy-RPa-S7-DQ-unsplash.jpg" alt="" />
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <img src="https://i.ibb.co/gmsjKh3/kaushal-subedi-z-RWq-7-SWVSU-unsplash.jpg" alt="" />
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <img src="https://i.ibb.co/5FbLBx6/tobse-fritz-BLTc-Ki-KXbz-U-unsplash.jpg" alt="" />
+                        </SwiperSlide>
+                    </Swiper>
+                </div>
+                <div className='hidden md:block'>
+                    <Swiper
+                        slidesPerView={1}
+                        autoplay={true}
+                        spaceBetween={0}
+                        loop={true}
 
-                </Swiper>
-                <Swiper
-                    slidesPerView={1}
-                    autoplay={true}
-                    spaceBetween={0}
-                    loop={true}
+                        modules={[Autoplay]}
+                        className="mySwiper"
+                    >
+                        <SwiperSlide>
+                            <img src="https://i.ibb.co/5FbLBx6/tobse-fritz-BLTc-Ki-KXbz-U-unsplash.jpg" alt="" />
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <img src="https://i.ibb.co/5YV0ZrG/raimond-klavins-KKm1ua7-MSf0-unsplash.jpg" alt="" />
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <img src="https://i.ibb.co/FmLx018/meera-pankhania-7c-ENZhgyf7c-unsplash.jpg" alt="" />
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <img src="https://i.ibb.co/5YV0ZrG/raimond-klavins-KKm1ua7-MSf0-unsplash.jpg" alt="" />
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <img src="https://i.ibb.co/gmsjKh3/kaushal-subedi-z-RWq-7-SWVSU-unsplash.jpg" alt="" />
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <img src="https://i.ibb.co/myMdbSb/giuseppe-mondi-xy-E1p1r-G04-U-unsplash.jpg" alt="" />
+                        </SwiperSlide>
 
-                    modules={[Autoplay]}
-                    className="mySwiper"
-                >
-                    <SwiperSlide>
-                        <img src="https://i.ibb.co/5FbLBx6/tobse-fritz-BLTc-Ki-KXbz-U-unsplash.jpg" alt="" />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img src="https://i.ibb.co/5YV0ZrG/raimond-klavins-KKm1ua7-MSf0-unsplash.jpg" alt="" />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img src="https://i.ibb.co/FmLx018/meera-pankhania-7c-ENZhgyf7c-unsplash.jpg" alt="" />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img src="https://i.ibb.co/5YV0ZrG/raimond-klavins-KKm1ua7-MSf0-unsplash.jpg" alt="" />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img src="https://i.ibb.co/gmsjKh3/kaushal-subedi-z-RWq-7-SWVSU-unsplash.jpg" alt="" />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img src="https://i.ibb.co/myMdbSb/giuseppe-mondi-xy-E1p1r-G04-U-unsplash.jpg" alt="" />
-                    </SwiperSlide>
+                    </Swiper>
+                </div>
+                <div className='hidden md:block'>
+                    <Swiper
+                        slidesPerView={1}
+                        autoplay={true}
+                        spaceBetween={0}
+                        loop={true}
 
-                </Swiper>
-                <Swiper
-                    slidesPerView={1}
-                    autoplay={true}
-                    spaceBetween={0}
-                    loop={true}
+                        modules={[Autoplay]}
+                        className="mySwiper hidden md:block"
+                    >
+                        <SwiperSlide>
+                            <img src="https://i.ibb.co/myMdbSb/giuseppe-mondi-xy-E1p1r-G04-U-unsplash.jpg" alt="" />
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <img src="https://i.ibb.co/vJC2P1L/azin-javadzadeh-WMpy-RPa-S7-DQ-unsplash.jpg" alt="" />
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <img src="https://i.ibb.co/FmLx018/meera-pankhania-7c-ENZhgyf7c-unsplash.jpg" alt="" />
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <img src="https://i.ibb.co/vJC2P1L/azin-javadzadeh-WMpy-RPa-S7-DQ-unsplash.jpg" alt="" />
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <img src="https://i.ibb.co/gmsjKh3/kaushal-subedi-z-RWq-7-SWVSU-unsplash.jpg" alt="" />
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <img src="https://i.ibb.co/5FbLBx6/tobse-fritz-BLTc-Ki-KXbz-U-unsplash.jpg" alt="" />
+                        </SwiperSlide>
 
-                    modules={[Autoplay]}
-                    className="mySwiper"
-                >
-                    <SwiperSlide>
-                        <img src="https://i.ibb.co/myMdbSb/giuseppe-mondi-xy-E1p1r-G04-U-unsplash.jpg" alt="" />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img src="https://i.ibb.co/vJC2P1L/azin-javadzadeh-WMpy-RPa-S7-DQ-unsplash.jpg" alt="" />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img src="https://i.ibb.co/FmLx018/meera-pankhania-7c-ENZhgyf7c-unsplash.jpg" alt="" />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img src="https://i.ibb.co/vJC2P1L/azin-javadzadeh-WMpy-RPa-S7-DQ-unsplash.jpg" alt="" />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img src="https://i.ibb.co/gmsjKh3/kaushal-subedi-z-RWq-7-SWVSU-unsplash.jpg" alt="" />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img src="https://i.ibb.co/5FbLBx6/tobse-fritz-BLTc-Ki-KXbz-U-unsplash.jpg" alt="" />
-                    </SwiperSlide>
+                    </Swiper>
+                </div>
+                <div className='hidden md:block'>
+                    <Swiper
+                        slidesPerView={1}
+                        autoplay={true}
+                        spaceBetween={0}
+                        loop={true}
+                        modules={[Autoplay]}
+                        className="mySwiper hidden md:block"
+                    >
+                        <SwiperSlide>
+                            <img src="https://i.ibb.co/myMdbSb/giuseppe-mondi-xy-E1p1r-G04-U-unsplash.jpg" alt="" />
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <img src="https://i.ibb.co/5YV0ZrG/raimond-klavins-KKm1ua7-MSf0-unsplash.jpg" alt="" />
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <img src="https://i.ibb.co/vJC2P1L/azin-javadzadeh-WMpy-RPa-S7-DQ-unsplash.jpg" alt="" />
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <img src="https://i.ibb.co/5FbLBx6/tobse-fritz-BLTc-Ki-KXbz-U-unsplash.jpg" alt="" />
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <img src="https://i.ibb.co/gmsjKh3/kaushal-subedi-z-RWq-7-SWVSU-unsplash.jpg" alt="" />
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <img src="https://i.ibb.co/FmLx018/meera-pankhania-7c-ENZhgyf7c-unsplash.jpg" alt="" />
+                        </SwiperSlide>
 
-                </Swiper>
-                <Swiper
-                    slidesPerView={1}
-                    autoplay={true}
-                    spaceBetween={0}
-                    loop={true}
-                    modules={[Autoplay]}
-                    className="mySwiper"
-                >
-                    <SwiperSlide>
-                        <img src="https://i.ibb.co/myMdbSb/giuseppe-mondi-xy-E1p1r-G04-U-unsplash.jpg" alt="" />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img src="https://i.ibb.co/5YV0ZrG/raimond-klavins-KKm1ua7-MSf0-unsplash.jpg" alt="" />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img src="https://i.ibb.co/vJC2P1L/azin-javadzadeh-WMpy-RPa-S7-DQ-unsplash.jpg" alt="" />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img src="https://i.ibb.co/5FbLBx6/tobse-fritz-BLTc-Ki-KXbz-U-unsplash.jpg" alt="" />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img src="https://i.ibb.co/gmsjKh3/kaushal-subedi-z-RWq-7-SWVSU-unsplash.jpg" alt="" />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img src="https://i.ibb.co/FmLx018/meera-pankhania-7c-ENZhgyf7c-unsplash.jpg" alt="" />
-                    </SwiperSlide>
-
-                </Swiper>
+                    </Swiper>
+                </div>
             </div>
         </div>
     )
