@@ -1,11 +1,7 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
 import { Typewriter } from "react-simple-typewriter";
-// import bannerBg from "/banner.svg"
 
-// Import Swiper styles
+import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
 import { Autoplay } from 'swiper/modules';
 
 const sitesName = "Sundarban, Cox’s Bazar,Rangamati, Bandarban, Saint Martin’s Island, Bangkok, Chiang Mai, Ayutthaya, Phuket, Phi Phi Islands, Bali, Borobudur Temple, Komodo National Park, Raja Ampat Islands, Yogyakarta, Kuala Lumpur, Penang Taman, Negara National Park, Ha Long Bay, Ho Chi Minh City, Hoi An Ancient Town, Phong Nha Caves, Mekong Delta, Angkor Wat, Siem Reap, Phnom Penh, Bokor National Park, Kep";

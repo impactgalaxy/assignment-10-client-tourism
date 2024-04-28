@@ -39,7 +39,7 @@ export default function TouristSpot() {
                                         data-aos-easing="ease-in-out"
                                         data-aos-mirror="true"
                                         data-aos-once="false"
-                                        className="rounded-2xl bg-gray-300 p-3  w-64 items-center rotate-45 hover:rotate-0 transition-all"
+                                        className="rounded-2xl  p-3  w-64 items-center rotate-45 hover:rotate-0 transition-all"
                                     >
                                         <img src={spot.photo} alt="" className="h-48 w-full block m-auto object-cover opacity-80 hover:opacity-100 transition-all rounded-md" />
                                         <div className="flex items-start flex-col justify-center gap-2 py-4 ">
@@ -56,6 +56,9 @@ export default function TouristSpot() {
                         }
                     </div>
             }
+            <div className="text-center py-5">
+                <Link to="/all-tourists-spot" className="btn ">Show More</Link>
+            </div>
 
         </div>
     )

@@ -6,7 +6,7 @@ import { Fade } from "react-awesome-reveal";
 export default function TouristSpot_Details() {
     const { id } = useParams();
     const [spotInfo, setSpotInfo] = useState({});
-    const { photo, description, country, location, spot, season, visitorPerYear, cost } = spotInfo;
+    const { photo, description, country, location, spot, season, visitorPerYear, cost, travelTime } = spotInfo;
     const [loading, setLoading] = useState(true);
     useEffect(() => {
         fetch(`http://localhost:5000/touristSpots/${id}`)
@@ -16,10 +16,10 @@ export default function TouristSpot_Details() {
 
             })
     }, [id])
-    console.log(spotInfo);
 
     return (
         <div>
+            <Link to="/" className="btn">Go Home</Link>
             {
                 loading
                     ? <div className="h-14 flex items-center justify-center">
@@ -38,6 +38,7 @@ export default function TouristSpot_Details() {
                                         <h1 className="text-xl">Location <span className="font-bold">{location}</span></h1>
                                         <h1 className="text-xl">Season <span className="font-bold">{season}</span></h1>
                                         <h1 className="text-xl">Visitor Per Year <span className="font-bold">{visitorPerYear}</span></h1>
+                                        <h1 className="text-xl">Travel time <span className="font-bold">{travelTime}</span></h1>
                                         <h1 className="text-xl">Average Cost <span className="font-bold">{cost}</span></h1>
                                     </Fade>
                                 </div>

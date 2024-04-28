@@ -34,7 +34,7 @@ export default function Countries() {
                 {
                     data.map(c => {
                         return (
-                            <div key={c._id} className="p-4 bg-slate-100 space-y-3">
+                            <div key={c._id} className="p-4 space-y-3">
                                 <img src={c.Img} alt="" className="block w-full h-80 object-cover m-auto" />
                                 <Flip cascade>
                                     <h1 className="text-2xl">{c.Country_name}</h1>

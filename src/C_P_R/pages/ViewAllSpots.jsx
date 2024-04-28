@@ -15,10 +15,12 @@ export default function ViewAllSpots() {
                     <Link to="/" className="btn">Go Home</Link>
                 </div>
             }
-            <div className="p-4 md:py-8 lg:py-10 flex items-center justify-center ">
-                <h1 className="text-2xl md:text-4xl">Travel To {loadedData[0].country}</h1>
+            {
+                loadedData.length > 0 && <div className="p-4 md:py-8 lg:py-10 flex items-center justify-center ">
+                    <h1 className="text-2xl md:text-4xl">Travel To {loadedData[0].country}</h1>
 
-            </div>
+                </div>
+            }
             <div className="space-y-6">
                 {
                     loadedData.map(spot => {
