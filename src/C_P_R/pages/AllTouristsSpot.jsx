@@ -11,14 +11,13 @@ export default function AllTouristsSpot() {
     const loadedSpot = useLoaderData();
     const [loaderData, setLoadedSpot] = useState(loadedSpot);
     const copyOfLoaderData = [...loadedSpot];
-    console.log(copyOfLoaderData);
     const handleFilter = (e) => {
         const value = e.target.value;
         if (value === "higher") {
             const filter = copyOfLoaderData.sort((a, b) => {
-                const regEx = /[0-9]/g;
-                const first = a.cost.match(regEx).join("");
-                const second = b.cost.match(regEx).join("");
+
+                const first = a.cost.split(",").join("");
+                const second = b.cost.split(",").join("");
                 return parseInt(first) - parseInt(second)
             });
             setLoadedSpot(filter);
@@ -31,9 +30,8 @@ export default function AllTouristsSpot() {
             }))
         } else if (value === "lower") {
             const filter = copyOfLoaderData.sort((a, b) => {
-                const regEx = /[0-9]/g;
-                const first = a.cost.match(regEx).join("");
-                const second = b.cost.match(regEx).join("");
+                const first = a.cost.split(",").join("");
+                const second = b.cost.split(",").join("");
                 return parseInt(second) - parseInt(first)
             });
             setLoadedSpot(filter);
@@ -54,6 +52,9 @@ export default function AllTouristsSpot() {
 
     return (
         <div>
+            {loaderData.length === 0 && <div className="flex items-center justify-center h-40">
+                <div className="loading loading-bars loading-lg"></div>
+            </div>}
             <div className="p-4 lg:p-8">
                 <Swiper
                     slidesPerView={1}
