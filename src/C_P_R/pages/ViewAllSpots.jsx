@@ -10,9 +10,12 @@ export default function ViewAllSpots() {
             {
                 loadedData.length === 0 && <div className="p-5 md:py-8 lg:py-10 flex items-center justify-center flex-col gap-7">
                     <Fade cascade>
-                        <h1 className="text-2xl md:text-4xl lg:text-5xl font-semibold">No data found of selected Country</h1>
+                        <h1 className="text-2xl md:text-4xl lg:text-5xl font-semibold">No spot found of selected Country</h1>
                     </Fade>
-                    <Link to="/" className="btn">Go Home</Link>
+                    <div className="flex items-center gap-3">
+                        <Link to="/" className="btn">Go Home</Link>
+                        <Link to="/add-tourists-spot" className="btn">Add Tourist Spot</Link>
+                    </div>
                 </div>
             }
             {

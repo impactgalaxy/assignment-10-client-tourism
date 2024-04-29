@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom";
 import AOS from 'aos';
-import 'aos/dist/aos.css'; // You can also use <link> for styles
-// ..
+import 'aos/dist/aos.css';
+import defaultImg from "/banner.svg"
 AOS.init();
 
 export default function TouristSpot() {
@@ -41,7 +41,7 @@ export default function TouristSpot() {
                                         data-aos-once="false"
                                         className="rounded-2xl  p-3  w-64 items-center rotate-45 hover:rotate-0 transition-all"
                                     >
-                                        <img src={spot.photo} alt="" className="h-48 w-full block m-auto object-cover opacity-80 hover:opacity-100 transition-all rounded-md" />
+                                        <img src={spot.photo.length > 8 ? spot.photo : defaultImg} alt="" className="h-48 w-full block m-auto object-cover opacity-80 hover:opacity-100 transition-all rounded-md" />
                                         <div className="flex items-start flex-col justify-center gap-2 py-4 ">
                                             <p><span className="font-bold flex-grow">Location</span> {spot.location}</p>
                                             <p><span className="font-bold">Spot Name</span> {spot.spot}</p>

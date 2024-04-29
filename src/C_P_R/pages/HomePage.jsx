@@ -1,4 +1,5 @@
 import Banner from "../components/Banner";
+import Blogs from "../components/Blogs";
 import Countries from "../components/Countries";
 import LastMinuteOffers from "../components/LastMinuteOffers";
 import TopReviews from "../components/TopReviews";
@@ -14,6 +15,7 @@ export default function HomePage() {
             <Countries></Countries>
             <LastMinuteOffers></LastMinuteOffers>
             <TopReviews></TopReviews>
+            <Blogs></Blogs>
         </div>
     )
 }

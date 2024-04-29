@@ -1,7 +1,7 @@
 
 export default function Footer() {
     return (
-        <footer className="footer p-4 md:p-10 bg-neutral text-neutral-content my-10">
+        <footer className="footer p-4 md:p-10 bg-neutral text-neutral-content mt-10">
             <aside>
                 <p className="text-2xl">Southern Tour</p>
                 <p>&copy; All rights reserved</p>

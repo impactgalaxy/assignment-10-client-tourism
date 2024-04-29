@@ -2,12 +2,13 @@ import { useContext } from "react";
 import { useForm } from "react-hook-form"
 import { AuthContext } from "../provider/AuthProvider";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
+import { Zoom } from "react-awesome-reveal";
 
 export default function AddTouristsSpot() {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const { user } = useContext(AuthContext);
     const handleAddSpot = (data) => {
-        console.log(data);
         data.owner = user?.email;
 
         fetch("https://assignment-10-server-wine-eight.vercel.app/touristSpots", {
@@ -37,8 +38,12 @@ export default function AddTouristsSpot() {
         })
     }
     return (
-        <div>
-            <div className="text-center space-y-5 p-4 md:p-10">
+        <div className="relative p-3">
+            <Zoom>
+                <Link to="/add_country" className="btn btn-active absolute top-5 right-5 btn-xs md:btn-sm lg:btn-lg">Add Country</Link>
+            </Zoom>
+            <div className="text-center space-y-5 p-4 md:p-10 my-4">
+
                 <h1 className="text-2xl md:text-4xl">Welcome, Traveler</h1>
                 <p>You can add your visited site that you like most</p>
             </div>

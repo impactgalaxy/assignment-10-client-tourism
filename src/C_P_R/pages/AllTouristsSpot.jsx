@@ -2,6 +2,7 @@ import { Link, useLoaderData } from "react-router-dom"
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import { Autoplay, Pagination } from 'swiper/modules';
+import defaultImg from "/banner.svg";
 import 'swiper/css/pagination';
 import { useState } from "react";
 import Swal from "sweetalert2";
@@ -71,8 +72,8 @@ export default function AllTouristsSpot() {
                 >
                     {
                         loaderData.map(item => <SwiperSlide key={item._id}>
-                            <img src={item.photo} alt="" className="relative" />
-                            <p className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-black text-3xl">{item.country}</p>
+                            <img src={item.photo.length > 8 ? item.photo : defaultImg} alt="" className="relative" />
+                            <p className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-3xl">{item.country}</p>
                         </SwiperSlide>)
                     }
                 </Swiper>
@@ -95,7 +96,7 @@ export default function AllTouristsSpot() {
 
                                     className="rounded-2xl p-3  w-64 items-center"
                                 >
-                                    <img src={spot.photo} alt="" className="h-48 w-full block m-auto object-cover opacity-80 hover:opacity-100 transition-all rounded-md" />
+                                    <img src={spot.photo.length > 8 ? spot.photo : defaultImg} alt={`This is image of ${spot.country}'s tourist spot`} className="h-48 w-full block m-auto object-cover opacity-80 hover:opacity-100 transition-all rounded-md" />
                                     <div className="flex items-start flex-col justify-center gap-2 py-4 ">
                                         <p><span className="font-bold flex-grow">Location</span> {spot.location}</p>
                                         <p><span className="font-bold">Spot Name</span> {spot.spot}</p>

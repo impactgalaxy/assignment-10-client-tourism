@@ -11,6 +11,7 @@ import MyList from "../../pages/MyList";
 import ViewAllSpots from "../../pages/ViewAllSpots";
 import TouristSpot_Details from "../../pages/TouristSpot_Details";
 import UpdateSpot from "../../pages/UpdateSpot";
+import AddCountry from "../../pages/AddCountry";
 
 export const router = createBrowserRouter([
 
@@ -59,6 +60,11 @@ export const router = createBrowserRouter([
                 path: "/update_spot/:id",
                 element: <UpdateSpot></UpdateSpot>,
                 loader: ({ params }) => fetch(`https://assignment-10-server-wine-eight.vercel.app/touristSpots/${params.id}`)
+            },
+            {
+                path: "/add_country",
+                element: <AddCountry></AddCountry>
+
             }
         ]
     }
