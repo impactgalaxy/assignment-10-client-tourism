@@ -10,7 +10,7 @@ export default function AddTouristsSpot() {
         console.log(data);
         data.owner = user?.email;
 
-        fetch("http://localhost:5000/touristSpots", {
+        fetch("https://assignment-10-server-wine-eight.vercel.app/touristSpots", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

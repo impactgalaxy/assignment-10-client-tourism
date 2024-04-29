@@ -9,7 +9,7 @@ export default function TouristSpot() {
     const [data, setData] = useState();
     const [loading, setLoading] = useState(true);
     useEffect(() => {
-        fetch("http://localhost:5000/touristSpots")
+        fetch("https://assignment-10-server-wine-eight.vercel.app/touristSpots")
             .then(res => res.json()).then(data => {
                 setData(data);
                 setLoading(false);

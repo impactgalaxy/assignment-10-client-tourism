@@ -2,10 +2,11 @@ import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import Swal from "sweetalert2";
 export default function LoginPage() {
+    const [showPass, setShowPass] = useState(false);
     const { register, handleSubmit, formState: { errors } } = useForm();
     const navigation = useNavigate();
     const location = useLocation();
@@ -142,6 +143,7 @@ export default function LoginPage() {
         })
     }
 
+    console.log(showPass);
     return (
         <div>
             <div className="md:w-1/2 m-auto p-4 md:p-8 text-center space-y-5">
@@ -166,8 +168,9 @@ export default function LoginPage() {
                             <div className="label">
                                 <span className="label-text">Enter your password</span>
                             </div>
-                            <input type="password" {...register("password", { required: true })} placeholder="Password here" className="input input-bordered w-full max-w-xs" />
+                            <input type={`${showPass ? "text" : "password"}`} {...register("password", { required: true })} placeholder="Password here" className="input input-bordered w-full max-w-xs" />
                             <div className="label">
+                                <div className="flex items-center gap-1"><input type="checkbox" onChange={(e) => setShowPass(e.target.checked)} className="checkbox checkbox-xs" /><span className="label-text-alt"> Show Password</span> </div>
                                 {errors.password && <span className="label-text-alt text-red-600">You should provide password</span>}
 
                             </div>
@@ -178,15 +181,15 @@ export default function LoginPage() {
                     <div className="grid flex-grow card bg-base-200 rounded-box place-items-center p-4 gap-2">
                         <div>
 
-                            <button className="btn uppercase" type="button" onClick={handleGoogleLogin}><FcGoogle></FcGoogle> Sign in with google</button>
+                            <button className="btn uppercase" type="button" onClick={handleGoogleLogin}><FcGoogle></FcGoogle> Login with google</button>
                         </div>
                         <div>
 
-                            <button className="btn uppercase" type="button" onClick={handleGithubLogin}><FaGithub></FaGithub> Sign in with github</button>
+                            <button className="btn uppercase" type="button" onClick={handleGithubLogin}><FaGithub></FaGithub> Login with github</button>
                         </div>
                     </div>
                 </div>
-                <input type="submit" value="Sign In" className="btn btn-block btn-secondary" />
+                <input type="submit" value="Login" className="btn btn-block btn-secondary" />
             </form>
         </div>
     )

@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form"
 import { Link, Navigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 
 export default function RegisterPage() {
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const [showPass, setShowPass] = useState(false);
 
     const { registerUser } = useContext(AuthContext);
 
@@ -94,13 +95,14 @@ export default function RegisterPage() {
                             <div className="label">
                                 <span className="label-text">Enter your password</span>
                             </div>
-                            <input type="password" {...register("password", { required: true, pattern: /^(?=.*[a-z])(?=.*[A-Z])/, minLength: 6 })} placeholder="Password here" className="input input-bordered w-full max-w-lg" />
-                            <div className="label">
+                            <input type={`${showPass ? "text" : "password"}`} {...register("password", { required: true, pattern: /^(?=.*[a-z])(?=.*[A-Z])/, minLength: 6 })} placeholder="Password here" className="input input-bordered w-full max-w-lg" />
+                            <div className="label flex-col lg:flex-row items-start">
+                                <div className="flex items-center gap-1"><input type="checkbox" onChange={(e) => setShowPass(e.target.checked)} className="checkbox checkbox-xs" /><span className="label-text-alt"> Show Password</span> </div>
                                 {
                                     errors.password?.type === "required" ? <span className="label-text-alt text-red-600">This field is required</span> :
                                         errors.password?.type === "minLength" ? <span className="label-text-alt text-red-600">Password must be 6 character length</span> :
                                             errors.password?.type === "pattern" ?
-                                                <span className="label-text-alt text-red-600">Password must contain at least one uppercase and one lowercase</span> : ""
+                                                <span className="label-text-alt text-red-600">Please ensure at least one uppercase and one lowercase</span> : ""
                                 }
 
                             </div>

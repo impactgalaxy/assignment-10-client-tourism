@@ -11,7 +11,7 @@ export default function UpdateSpot() {
     const handleUpdate = (data) => {
         console.log(data);
 
-        fetch(`http://localhost:5000/touristSpots/${_id}`, {
+        fetch(`https://assignment-10-server-wine-eight.vercel.app/touristSpots/${_id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"

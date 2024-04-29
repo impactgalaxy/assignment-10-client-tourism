@@ -38,12 +38,12 @@ export const router = createBrowserRouter([
             {
                 path: "/all-tourists-spot",
                 element: <AllTouristsSpot></AllTouristsSpot>,
-                loader: () => fetch("http://localhost:5000/touristSpots")
+                loader: () => fetch("https://assignment-10-server-wine-eight.vercel.app/touristSpots")
             },
             {
                 path: "/my-list",
                 element: <PrivateRoute><MyList></MyList></PrivateRoute>,
-                loader: () => fetch("http://localhost:5000/touristSpots")
+                loader: () => fetch("https://assignment-10-server-wine-eight.vercel.app/touristSpots")
             },
 
             {
@@ -53,12 +53,12 @@ export const router = createBrowserRouter([
             {
                 path: "/view_all_spots/:country",
                 element: <ViewAllSpots></ViewAllSpots>,
-                loader: ({ params }) => fetch(`http://localhost:5000/touristSpots/${params.country}`)
+                loader: ({ params }) => fetch(`https://assignment-10-server-wine-eight.vercel.app/touristSpots/${params.country}`)
             },
             {
                 path: "/update_spot/:id",
                 element: <UpdateSpot></UpdateSpot>,
-                loader: ({ params }) => fetch(`http://localhost:5000/touristSpots/${params.id}`)
+                loader: ({ params }) => fetch(`https://assignment-10-server-wine-eight.vercel.app/touristSpots/${params.id}`)
             }
         ]
     }

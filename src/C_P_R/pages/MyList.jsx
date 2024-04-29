@@ -26,7 +26,7 @@ export default function MyList() {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/touristSpots/${id}`, {
+                fetch(`https://assignment-10-server-wine-eight.vercel.app/touristSpots/${id}`, {
                     method: "DELETE"
                 }).then(res => res.json()).then(data => {
                     if (data.deletedCount > 0) {

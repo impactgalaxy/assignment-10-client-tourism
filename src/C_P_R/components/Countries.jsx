@@ -7,7 +7,7 @@ import { Flip } from "react-awesome-reveal";
 export default function Countries() {
     const [data, setData] = useState([]);
     useEffect(() => {
-        fetch("http://localhost:5000/countries")
+        fetch("https://assignment-10-server-wine-eight.vercel.app/countries")
             .then((res) => res.json())
             .then((data) => setData(data))
     }, [])

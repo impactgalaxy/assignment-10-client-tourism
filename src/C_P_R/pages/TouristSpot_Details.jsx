@@ -9,7 +9,7 @@ export default function TouristSpot_Details() {
     const { photo, description, country, location, spot, season, visitorPerYear, cost, travelTime } = spotInfo;
     const [loading, setLoading] = useState(true);
     useEffect(() => {
-        fetch(`http://localhost:5000/touristSpots/${id}`)
+        fetch(`https://assignment-10-server-wine-eight.vercel.app/touristSpots/${id}`)
             .then(res => res.json()).then(data => {
                 setSpotInfo(data)
                 setLoading(false)
