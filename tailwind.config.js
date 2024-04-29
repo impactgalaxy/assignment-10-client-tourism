@@ -7,7 +7,9 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        bannerBg: "url('/banner.svg')"
+        bannerBg: "url('/banner.svg')",
+        worldBg: "url('/world.svg')",
+        farmerBg: "url('https://i.ibb.co/JFWbHSb/eduardo-prim-3u51-u-LQICc-unsplash-1.jpg')"
       }
     },
   },
