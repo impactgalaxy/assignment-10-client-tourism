@@ -8,7 +8,7 @@ export default function TopReviews() {
         <div className="grid grid-cols-1 lg:grid-cols-2 *:h-[500px]">
             <div className="bg-farmerBg bg-center bg-repeat bg-cover h-96">
             </div>
-            <div className="flex flex-col items-center justify-center p-4 bg-worldBg bg-center bg-no-repeat bg-cover">
+            <div className="flex flex-col items-center justify-center p-4 bg-worldBg bg-center bg-no-repeat bg-cover *:text-white">
                 <div className="text-center py-4">
                     <h1 className="text-white text-2xl md:text-4xl font-semibold">Our Top Reviews</h1>
                 </div>
