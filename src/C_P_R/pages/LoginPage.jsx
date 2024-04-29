@@ -182,7 +182,7 @@ export default function LoginPage() {
                         </div>
                         <div>
 
-                            <button className="btn uppercase" type="button" onClick={handleGithubLogin}><FaGithub></FaGithub> Sign in with google</button>
+                            <button className="btn uppercase" type="button" onClick={handleGithubLogin}><FaGithub></FaGithub> Sign in with github</button>
                         </div>
                     </div>
                 </div>

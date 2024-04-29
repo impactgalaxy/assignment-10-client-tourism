@@ -48,7 +48,7 @@ export default function AddTouristsSpot() {
                         <div className="label">
                             <span className="label-text">Enter your email</span>
                         </div>
-                        <input type="email" {...register("email", { required: true, pattern: user?.email })} placeholder="Email " className="input input-bordered w-full" />
+                        <input type="email" {...register("email", { required: true })} placeholder="Email " className="input input-bordered w-full" />
                         {errors.email && <span className="label-text-alt text-red-600 py-1">You should provide email</span>
                         }
 
@@ -74,8 +74,9 @@ export default function AddTouristsSpot() {
                             <div className="label">
                                 <span className="label-text">Enter country name</span>
                             </div>
-                            <input type="text" {...register("country", { required: true })} placeholder="Country " className="input input-bordered w-full" />
-                            {errors.country && <span className="label-text-alt text-red-600 py-1">You should provide country name</span>}
+                            <input type="text" {...register("country", { required: true, pattern: /^[A-Z]/ })} placeholder="Country " className="input input-bordered w-full" />
+                            {errors.country?.type === "required" && <span className="label-text-alt text-red-600 py-1">You should provide country name</span>}
+                            {errors.country?.type === "pattern" && <span className="label-text-alt text-red-600 py-1">Please ensure first letter capital of country name</span>}
 
                         </label>
                         <label className="form-control w-full block">
