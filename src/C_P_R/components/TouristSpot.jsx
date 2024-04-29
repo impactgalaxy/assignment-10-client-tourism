@@ -29,17 +29,17 @@ export default function TouristSpot() {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center gap-4 md:gap-6 container m-auto overflow-hidden">
 
                         {
-                            data.slice(0, 6).map((spot, idx) => {
+                            data.slice(0, 6).map((spot) => {
                                 return (
                                     <div key={spot._id}
-                                        data-aos={`${idx % 2 === 1 ? "fade-up" : "fade-down"}`}
+                                        data-aos="fade-up"
                                         data-aos-offset="200"
                                         data-aos-delay="50"
                                         data-aos-duration="1000"
                                         data-aos-easing="ease-in-out"
                                         data-aos-mirror="true"
                                         data-aos-once="false"
-                                        className="rounded-2xl  p-3  w-64 items-center rotate-45 hover:rotate-0 transition-all"
+                                        className="rounded-2xl  p-3  w-64 shadow-sm hover:shadow-lg transition-all"
                                     >
                                         <img src={spot.photo.length > 8 ? spot.photo : defaultImg} alt="" className="h-48 w-full block m-auto object-cover opacity-80 hover:opacity-100 transition-all rounded-md" />
                                         <div className="flex items-start flex-col justify-center gap-2 py-4 ">
@@ -57,7 +57,7 @@ export default function TouristSpot() {
                     </div>
             }
             <div className="text-center py-5">
-                <Link to="/all-tourists-spot" className="btn ">Show More</Link>
+                <Link to="/all-tourists-spot" className="btn">Show More</Link>
             </div>
 
         </div>

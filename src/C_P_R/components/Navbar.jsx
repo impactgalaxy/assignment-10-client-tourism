@@ -69,7 +69,7 @@ export default function Navbar() {
                         {navLinks}
                     </ul>
                 </div>
-                <a className="btn btn-ghost md:text-xl">Southern Tour</a>
+                <Link to="/" className="btn btn-ghost md:text-xl">Southern Tour</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">

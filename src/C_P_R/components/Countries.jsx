@@ -6,12 +6,12 @@ import { Flip } from "react-awesome-reveal";
 
 export default function Countries() {
     const [data, setData] = useState([]);
+
     useEffect(() => {
         fetch("https://assignment-10-server-wine-eight.vercel.app/countries")
             .then((res) => res.json())
             .then((data) => setData(data))
     }, [])
-    console.log(data);
     const countries = ["Bangladesh", "Indonesia", "Thailand", "Malaysia", "Vietnam", "Cambodia"]
     return (
         <div className="p-4 my-5">
@@ -32,15 +32,15 @@ export default function Countries() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 justify-items-center container m-auto p-4 my-4">
                 {
-                    data.map(c => {
+                    data.map(country => {
                         return (
-                            <div key={c._id} className="p-4 space-y-3 shadow-sm hover:shadow-lg">
-                                <img src={c.Img} alt={`This is the tourist spot of${c.country}`} className="block w-full h-80 object-cover m-auto" />
+                            <div key={country._id} className="p-4 space-y-3 shadow-sm hover:shadow-lg">
+                                <img src={country.Img} alt={`This is the tourist spot of${country.Country_name}`} className="block w-full h-80 object-cover m-auto" />
                                 <Flip cascade>
-                                    <h1 className="text-2xl">{c.Country_name}</h1>
+                                    <h1 className="text-2xl">{country.Country_name}</h1>
                                 </Flip>
-                                <p className="py-4">{c.Description}</p>
-                                <Link to={`view_all_spots/${c.Country_name}`} className="btn bg-pink-200">View All Spots</Link>
+                                <p className="py-4">{country.Description}</p>
+                                <Link to={`view_all_spots/${country.Country_name}`} className="btn btn-accent">View All Spots</Link>
                             </div>
                         )
                     })

@@ -12,18 +12,7 @@ export default function LastMinuteOffers() {
                     <h1 className="text-2xl md:text-3xl lg:text-5xl font-black">50%</h1>
                     <p className="text-xl font-black rotate-45">Discount</p>
                 </div>
-                <div className="space-y-4">
-                    <h1 className="text-2xl md:text-3xl font-bold">News Letter</h1>
-                    <p>Send us your Opinion and Reviews</p>
-                    <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
-                        <input type="text" className="w-full input input-bordered" placeholder="Enter name" />
-                        <input type="email" className="w-full input input-bordered" placeholder="Enter email" />
-                        <input type="text" className="w-full input input-bordered" placeholder="Enter address" />
-                        <textarea className="textarea input input-bordered w-full h-20" placeholder="Your comments or opinion"></textarea>
-                        <button className="btn" >Send</button>
 
-                    </form>
-                </div>
 
             </div>
         </div>

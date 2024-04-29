@@ -40,7 +40,7 @@ export default function AddTouristsSpot() {
     return (
         <div className="relative p-3">
             <Zoom>
-                <Link to="/add_country" className="btn btn-active absolute top-5 right-5 btn-xs md:btn-sm lg:btn-lg">Add Country</Link>
+                <Link to="/add_country" className="btn btn-active absolute top-0 right-5 btn-xs md:btn-sm lg:btn-lg">Add Country</Link>
             </Zoom>
             <div className="text-center space-y-5 p-4 md:p-10 my-4">
 

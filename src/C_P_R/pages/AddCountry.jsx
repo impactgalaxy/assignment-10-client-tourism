@@ -5,10 +5,20 @@ import Swal from "sweetalert2";
 
 export default function AddCountry() {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
-    console.log(errors);
 
     const handleAddCountry = (data) => {
-        console.log(data);
+        const countries = ["Bangladesh", "Indonesia", "Thailand", "Malaysia", "Vietnam", "Cambodia"];
+        if (!countries.includes(data.Country_name)) {
+            Swal.fire({
+                icon: "warning",
+                title: "Attention!",
+                text: `You can only add countries within South Asia eg "Bangladesh", "Indonesia", "Thailand", "Malaysia", "Vietnam", "Cambodia" `,
+                showConfirmButton: true
+            })
+            return;
+        }
+
+
         fetch("https://assignment-10-server-wine-eight.vercel.app/countries", {
             method: "POST",
             headers: {
@@ -32,9 +42,9 @@ export default function AddCountry() {
             })
     }
     return (
-        <div className="h-screen flex items-center justify-center relative">
+        <div className="p-5 relative">
             <Zoom>
-                <Link to="/add-tourists-spot" className="btn btn-active absolute top-5 right-5 btn-xs md:btn-sm lg:btn-lg">Add Tourist Spot</Link>
+                <Link to="/add-tourists-spot" className="btn btn-active absolute top-0 right-5 btn-xs md:btn-sm lg:btn-lg">Add Tourist Spot</Link>
             </Zoom>
             <form onSubmit={handleSubmit(handleAddCountry)} className="md:w-1/2 m-auto p-6">
                 <label className="block py-4 w-full">

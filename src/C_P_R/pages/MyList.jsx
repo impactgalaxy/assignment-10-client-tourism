@@ -58,7 +58,7 @@ export default function MyList() {
             {
                 mySpotData.length === 0 && <div className="p-5 md:py-8 lg:py-10 flex items-center justify-center flex-col gap-7">
                     <Fade cascade>
-                        <h1 className="text-2xl md:text-4xl lg:text-5xl font-semibold">No data found of selected Country</h1>
+                        <h1 className="text-2xl md:text-4xl lg:text-5xl font-semibold">No spots found of in your list</h1>
                     </Fade>
                     <Link to="/add-tourists-spot" className="btn">Please Add Tourist Spot</Link>
                 </div>
@@ -86,25 +86,20 @@ export default function MyList() {
                                         <div className="flex items-center gap-3">
                                             <div className="avatar">
                                                 <div className="mask mask-squircle w-16 h-16">
-                                                    <img src={item.photo} alt="Avatar Tailwind CSS Component" />
+                                                    <img src={item.photo} alt="No photo found" />
                                                 </div>
                                             </div>
 
                                         </div>
                                     </td>
-                                    <td>
-                                        {item.country}
+                                    <td>{item.country}
                                         <br />
                                         <span className="badge badge-ghost badge-sm">{item.spot}</span>
                                     </td>
                                     <td>{item.season}</td>
-                                    <th>
-                                        {item.cost}
-                                    </th>
+                                    <th>{item.cost}</th>
                                     <td>{item.visitorPerYear}</td>
                                     <td>{item.travelTime}</td>
-
-
                                 </tr>
                             </tbody>
                             {/* foot */}

@@ -7,7 +7,6 @@ import TouristSpot from "../components/TouristSpot";
 
 export default function HomePage() {
 
-
     return (
         <div>
             <Banner></Banner>
