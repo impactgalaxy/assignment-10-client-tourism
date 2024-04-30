@@ -40,7 +40,7 @@ export default function AuthProvider({ children }) {
             setLoadingState(false);
         })
         return () => {
-            unSubscribe();
+            return unSubscribe();
         }
     })
 
@@ -53,6 +53,7 @@ export default function AuthProvider({ children }) {
         createUserWithGoogle,
         createUserWithGithub,
     }
+    console.log(user);
     return (
         <AuthContext.Provider value={authInformation}>
             {children}

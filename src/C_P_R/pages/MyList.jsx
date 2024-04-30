@@ -1,19 +1,19 @@
-import { useContext, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { AuthContext } from "../provider/AuthProvider";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Fade } from "react-awesome-reveal";
 import Swal from "sweetalert2";
 
 export default function MyList() {
-    // const [mySpot, setMySpot] = useState([]);
-    const loaderData = useLoaderData();
-    // const [filterSpot, setFilterSpot] = useState([]);
+    const [myData, setMyData] = useState([])
     const { user } = useContext(AuthContext);
-
-    const filter = loaderData.filter(spot => {
-        return spot.owner === null ? spot.email === user.email : spot.owner === user.email;
-    })
-    const [mySpotData, setMySpotData] = useState(filter);
+    useEffect(() => {
+        fetch("https://assignment-10-server-wine-eight.vercel.app/touristSpots")
+            .then(res => res.json()).then(data => {
+                const filter = data.filter((myList) => myList.uid === user.uid);
+                setMyData(filter);
+            })
+    }, [user.uid]);
 
     const handleDelete = (id) => {
         Swal.fire({
@@ -30,14 +30,14 @@ export default function MyList() {
                     method: "DELETE"
                 }).then(res => res.json()).then(data => {
                     if (data.deletedCount > 0) {
-                        const removeData = mySpotData.filter(rmv => rmv._id !== id);
+                        const removeData = myData.filter(rmv => rmv._id !== id);
+                        setMyData(removeData);
+
                         Swal.fire({
                             title: "Deleted!",
                             text: "Your spot deleted successfully",
                             icon: "success"
                         })
-
-                        setMySpotData(removeData);
                     } else {
                         Swal.fire({
                             icon: "error",
@@ -56,7 +56,7 @@ export default function MyList() {
     return (
         <div className="space-y-12 p-4 lg:p-8 overflow-x-auto lg:overflow-x-hidden">
             {
-                mySpotData.length === 0 && <div className="p-5 md:py-8 lg:py-10 flex items-center justify-center flex-col gap-7">
+                myData.length === 0 && <div className="p-5 md:py-8 lg:py-10 flex items-center justify-center flex-col gap-7">
                     <Fade cascade>
                         <h1 className="text-2xl md:text-4xl lg:text-5xl font-semibold">No spots found of in your list</h1>
                     </Fade>
@@ -64,7 +64,7 @@ export default function MyList() {
                 </div>
             }
             {
-                mySpotData.map(item => {
+                myData.map(item => {
                     return (
                         <table className="table p-4 hover:border transition-all" key={item._id}>
                             {/* head */}

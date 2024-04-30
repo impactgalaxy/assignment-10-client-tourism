@@ -10,6 +10,7 @@ export default function AddTouristsSpot() {
     const { user } = useContext(AuthContext);
     const handleAddSpot = (data) => {
         data.owner = user?.email;
+        data.uid = user?.uid
 
         fetch("https://assignment-10-server-wine-eight.vercel.app/touristSpots", {
             method: "POST",

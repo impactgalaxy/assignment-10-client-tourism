@@ -43,8 +43,8 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/my-list",
-                element: <PrivateRoute><MyList></MyList></PrivateRoute>,
-                loader: () => fetch("https://assignment-10-server-wine-eight.vercel.app/touristSpots")
+                element: <PrivateRoute><MyList></MyList></PrivateRoute>
+
             },
 
             {
