@@ -1,29 +1,32 @@
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form"
-import { Link, Navigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import Swal from "sweetalert2";
 
 export default function RegisterPage() {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [showPass, setShowPass] = useState(false);
+    const navigate = useNavigate();
+    const location = useLocation();
 
     const { registerUser } = useContext(AuthContext);
 
     const handleRegister = (data) => {
-        console.log(data);
         const { email, password } = data;
         registerUser(email, password)
             .then(result => {
                 if (result.user.uid) {
-                    <Navigate to="/"></Navigate>
+
                     Swal.fire({
                         title: "Registered Successful",
                         titleText: "You have successfully register your account",
                         icon: "success",
                         timer: 3000,
                     })
+                    navigate(location?.state ? location.state : "/")
                 }
+
 
 
             }).catch((error) => {

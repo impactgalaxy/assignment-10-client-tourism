@@ -12,10 +12,8 @@ export default function LoginPage() {
     const location = useLocation();
 
     const { logIn, createUserWithGoogle, createUserWithGithub, user } = useContext(AuthContext);
-    console.log(location);
 
     const handleLogin = (data) => {
-        console.log(data);
         const { email, password } = data;
         logIn(email, password)
             .then((result) => {
@@ -34,7 +32,7 @@ export default function LoginPage() {
                 }
             }).catch((error) => {
                 const errorCode = error.code;
-                console.log(error, errorCode);
+
                 switch (errorCode) {
                     case 'auth/invalid-email':
                         Swal.fire({
@@ -142,8 +140,6 @@ export default function LoginPage() {
             })
         })
     }
-
-    console.log(showPass);
     return (
         <div>
             <div className="md:w-1/2 m-auto p-4 md:p-8 text-center space-y-5">

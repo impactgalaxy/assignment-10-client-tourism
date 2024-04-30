@@ -12,7 +12,8 @@ export default function Countries() {
             .then((res) => res.json())
             .then((data) => setData(data))
     }, [])
-    const countries = ["Bangladesh", "Indonesia", "Thailand", "Malaysia", "Vietnam", "Cambodia"]
+    const countries = ["Bangladesh", "Indonesia", "Thailand", "Malaysia", "Vietnam", "Cambodia"];
+
     return (
         <div className="p-4 my-5">
             <div className="p-8 text-center">
@@ -32,18 +33,16 @@ export default function Countries() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 justify-items-center container m-auto p-4 my-4">
                 {
-                    data.map(country => {
-                        return (
-                            <div key={country._id} className="p-4 space-y-3 shadow-sm hover:shadow-lg">
-                                <img src={country.Img} alt={`This is the tourist spot of${country.Country_name}`} className="block w-full h-80 object-cover m-auto" />
-                                <Flip cascade>
-                                    <h1 className="text-2xl">{country.Country_name}</h1>
-                                </Flip>
-                                <p className="py-4">{country.Description}</p>
-                                <Link to={`view_all_spots/${country.Country_name}`} className="btn btn-accent">View All Spots</Link>
-                            </div>
-                        )
-                    })
+                    data.map(country => <Link to={`view_all_spots/${country.Country_name}`} className="p-4 space-y-3 shadow-sm hover:shadow-lg" key={country._id}>
+                        <div key={country._id} className="">
+                            <img src={country.Img} alt={`This is the tourist spot of${country.Country_name}`} className="block w-full h-80 object-cover m-auto" />
+                            <Flip cascade>
+                                <h1 className="text-2xl">{country.Country_name}</h1>
+                            </Flip>
+                            <p className="py-4">{country.Description}</p>
+
+                        </div>
+                    </Link>)
                 }
 
             </div>

@@ -16,9 +16,10 @@ export default function AllTouristsSpot() {
         const value = e.target.value;
         if (value === "higher") {
             const filter = copyOfLoaderData.sort((a, b) => {
+                const regEx = /[0-9.]/g;
 
-                const first = a.cost.split(",").join("");
-                const second = b.cost.split(",").join("");
+                const first = a.cost.match(regEx).join("");
+                const second = b.cost.match(regEx).join("");
                 return parseInt(first) - parseInt(second)
             });
             setLoadedSpot(filter);
@@ -31,8 +32,9 @@ export default function AllTouristsSpot() {
             }))
         } else if (value === "lower") {
             const filter = copyOfLoaderData.sort((a, b) => {
-                const first = a.cost.split(",").join("");
-                const second = b.cost.split(",").join("");
+                const regEx = /[0-9.]/g;
+                const first = a.cost.match(regEx).join("");
+                const second = b.cost.match(regEx).join("");
                 return parseInt(second) - parseInt(first)
             });
             setLoadedSpot(filter);
@@ -104,6 +106,7 @@ export default function AllTouristsSpot() {
                                         <p><span className="font-bold">Average cost</span> {spot.cost}</p>
                                         <p><span className="font-bold">Season</span> {spot.season}</p>
                                         <p><span className="font-bold">Travel time</span> {spot.travelTime}</p>
+                                        <p><span className="font-bold">Spot added by</span> {spot.name}</p>
                                         <Link to={`/tourist_spot_details/${spot._id}`} className="btn btn-outline float-right" >View Details</Link>
                                     </div>
 

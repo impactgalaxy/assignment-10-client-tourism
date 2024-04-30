@@ -1,15 +1,16 @@
 import { useForm } from "react-hook-form"
-import { Link, useLoaderData } from "react-router-dom"
+import { Link, useLoaderData, useNavigate } from "react-router-dom"
 import Swal from "sweetalert2";
 
 export default function UpdateSpot() {
     const loaderData = useLoaderData();
+
+    const navigate = useNavigate();
     const { _id, spot, location, country, visitorPerYear, cost, travelTime, photo, season, description } = loaderData;
     const { register, handleSubmit, formState: { errors } } = useForm();
     // setValue('fieldArray', [{ spot }, { location }, { country }, { visitorPerYear }, { cost }, { travelTime },]);
 
     const handleUpdate = (data) => {
-        console.log(data);
 
         fetch(`https://assignment-10-server-wine-eight.vercel.app/touristSpots/${_id}`, {
             method: "PATCH",
@@ -27,6 +28,8 @@ export default function UpdateSpot() {
                         timer: 3000,
                         showConfirmButton: false
                     }))
+                    navigate("/my-list")
+
                 } else {
                     Swal.fire({
                         icon: "error",

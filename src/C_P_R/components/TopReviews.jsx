@@ -53,6 +53,7 @@ export default function TopReviews() {
                         timer: 3000,
                         showConfirmButton: false
                     })
+                    window.location.reload();
                 }
             })
         }
@@ -90,6 +91,25 @@ export default function TopReviews() {
                     modules={[Autoplay, Pagination]}
                     className="mySwiper hidden md:block"
                 >
+                    <SwiperSlide>
+                        <div className="flex items-center justify-center flex-col gap-3">
+                            <h1 className="text-xl font-semibold">Bangladesh</h1>
+                            <div className="rating">
+                                <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+                                <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+                                <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+                                <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+                                <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" defaultChecked />
+                            </div>
+                            <h1>Saint Martin Island</h1>
+                            <p className="p-4">It&apos;s very interesting place that I have not seen before</p>
+                            <p>Mohammad Palash</p>
+                            <div className="w-12 h-12 rounded-full">
+                                <img src={defaultUser} alt="" />
+                            </div>
+                        </div>
+
+                    </SwiperSlide>
                     {
                         reviews.map(review => {
                             return (
@@ -116,63 +136,6 @@ export default function TopReviews() {
                             )
                         })
                     }
-
-                    {/* <SwiperSlide>
-                        <div className="flex items-center justify-center flex-col gap-3">
-                            <h1>Saint Martin&apos;s Island</h1>
-                            <div className="rating">
-                                <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
-                                <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
-                                <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
-                                <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
-                                <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" checked />
-                            </div>
-                            <p className="p-4">Saint Martin&apos;s Island is a small coral island located in the Bay of Bengal, near the southern tip of Bangladesh</p>
-                            <p>Jhon Doe</p>
-                            <div className="w-12 h-12 rounded-full">
-                                <img src={defaultUser} alt="" />
-                            </div>
-
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div className="flex items-center justify-center flex-col gap-3">
-                            <h1>Cox&apos;s Bazar</h1>
-                            <div className="rating">
-                                <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
-                                <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
-                                <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
-                                <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
-                                <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" checked />
-                            </div>
-                            <p className="p-4">Cox&apos;s Bazar is a town and beach resort located in southeastern Bangladesh, known for having the longest natural sea beach in the world.</p>
-                            <p>NUR E ALAM</p>
-                            <div className="w-12 h-12 rounded-full">
-                                <img src={defaultUser} alt="" />
-                            </div>
-
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div className="flex items-center justify-center flex-col gap-3">
-                            <h1>Bangkok</h1>
-                            <div className="rating">
-                                <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
-                                <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
-                                <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
-                                <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
-                                <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" checked />
-                            </div>
-                            <p className="p-4">Bangkok is the capital city of Thailand, known for its vibrant street life, ornate temples, bustling markets, and vibrant nightlife.</p>
-                            <p>Kamal</p>
-                            <div className="w-12 h-12 rounded-full">
-                                <img src={defaultUser} alt="" />
-                            </div>
-
-                        </div>
-                    </SwiperSlide> */}
-
-
                 </Swiper>
             </div>
         </div>

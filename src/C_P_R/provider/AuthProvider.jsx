@@ -43,7 +43,6 @@ export default function AuthProvider({ children }) {
             unSubscribe();
         }
     })
-    console.log(user);
 
     const authInformation = {
         user,

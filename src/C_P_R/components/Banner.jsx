@@ -11,7 +11,7 @@ const sites = sitesName.split(",");
 export default function Banner() {
 
     return (
-        <div className="bg-bannerBg bg-center bg-cover bg-no-repeat flex flex-col lg:flex-row gap-5 lg:*:w-1/2">
+        <div className="bg-bannerBg bg-center bg-cover bg-no-repeat flex flex-col lg:flex-row gap-5 lg:*:w-1/2 p-3 md:p-5">
             <div className='p-4 md:p-6 flex items-center justify-center'>
                 <h1 className="text-lg text-white ">
                     <span>Hey, If you are a real tour lover, You should visit these sites first</span> {' '}<br></br>

@@ -6,40 +6,47 @@ import Swal from "sweetalert2";
 export default function AddCountry() {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
-    const handleAddCountry = (data) => {
-        const countries = ["Bangladesh", "Indonesia", "Thailand", "Malaysia", "Vietnam", "Cambodia"];
-        if (!countries.includes(data.Country_name)) {
-            Swal.fire({
-                icon: "warning",
-                title: "Attention!",
-                text: `You can only add countries within South Asia eg "Bangladesh", "Indonesia", "Thailand", "Malaysia", "Vietnam", "Cambodia" `,
-                showConfirmButton: true
-            })
-            return;
-        }
-
-
-        fetch("https://assignment-10-server-wine-eight.vercel.app/countries", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(data)
-
+    const handleAddCountry = () => {
+        Swal.fire({
+            icon: "info",
+            title: "Attention!",
+            text: "This service is unavailable at this moment. Please try after 5 may 2024",
+            showConfirmButton: true,
         })
-            .then(res => res.json()).then(data => {
-                if (data.insertedId) {
-                    Swal.fire({
-                        title: "Success!",
-                        text: "Country added successfully",
-                        icon: "success",
-                        timer: 2000,
-                        showConfirmButton: false
-                    })
-                    reset()
-                }
+        reset()
+        // const countries = ["Bangladesh", "Indonesia", "Thailand", "Malaysia", "Vietnam", "Cambodia"];
 
-            })
+        // if (!countries.includes(data.Country_name)) {
+        //     Swal.fire({
+        //         icon: "warning",
+        //         title: "Attention!",
+        //         text: `You can only add countries within South Asia eg "Bangladesh", "Indonesia", "Thailand", "Malaysia", "Vietnam", "Cambodia" `,
+        //         showConfirmButton: true
+        //     })
+        //     return;
+        // }
+
+
+        // fetch("https://assignment-10-server-wine-eight.vercel.app/countries", {
+        //     method: "POST",
+        //     headers: {
+        //         "Content-Type": "application/json"
+        //     },
+        //     body: JSON.stringify(data)
+
+        // }).then(res => res.json()).then(data => {
+        //         if (data.insertedId) {
+        //             Swal.fire({
+        //                 title: "Success!",
+        //                 text: "Country added successfully",
+        //                 icon: "success",
+        //                 timer: 2000,
+        //                 showConfirmButton: false
+        //             })
+        //             reset()
+        //         }
+
+        //     })
     }
     return (
         <div className="p-5 relative">

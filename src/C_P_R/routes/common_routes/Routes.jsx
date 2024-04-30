@@ -63,7 +63,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/add_country",
-                element: <AddCountry></AddCountry>
+                element: <PrivateRoute><AddCountry></AddCountry></PrivateRoute>
 
             }
         ]

@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { Fade } from "react-awesome-reveal";
+import Swal from "sweetalert2";
 
 
 export default function TouristSpot_Details() {
     const { id } = useParams();
+    const navigate = useNavigate();
     const [spotInfo, setSpotInfo] = useState({});
     const { photo, description, country, location, spot, season, visitorPerYear, cost, travelTime } = spotInfo;
     const [loading, setLoading] = useState(true);
@@ -15,7 +17,17 @@ export default function TouristSpot_Details() {
                 setLoading(false)
 
             })
-    }, [id])
+    }, [id]);
+    const handleConfirm = () => {
+        Swal.fire({
+            icon: "success",
+            title: "Congratulation!",
+            text: "Confirm your destination",
+            timer: 2000,
+        });
+        return navigate("/");
+
+    }
 
     return (
         <div>
@@ -40,8 +52,10 @@ export default function TouristSpot_Details() {
                                         <h1 className="text-xl">Visitor Per Year <span className="font-bold">{visitorPerYear}</span></h1>
                                         <h1 className="text-xl">Travel time <span className="font-bold">{travelTime}</span></h1>
                                         <h1 className="text-xl">Average Cost <span className="font-bold">{cost}</span></h1>
+                                        <button className="btn btn-active float-right" onClick={handleConfirm}>Confirm</button>
                                     </Fade>
                                 </div>
+
                             </div>
                         </div>
 
